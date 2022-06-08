@@ -7,8 +7,9 @@ function App() {
 		<div id="wrapper">
 			<Header />
 			<Routes>
-				<Route path="/" element={<Home />} />
+				<Route exact path="/" element={<Home />} />
 			</Routes>
+			{/* Footer will be here */}
 		</div>
 	);
 }
