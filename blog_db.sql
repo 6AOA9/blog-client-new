@@ -1,1 +1,0 @@
-SELECT * FROM blog_db.users;
