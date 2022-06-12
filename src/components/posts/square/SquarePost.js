@@ -7,17 +7,15 @@ const SquarePost = ({post}) => {
             <div className="shadoweffect">
                 <div className="shadow-desc">
                     <div className="blog-meta">
-                        <span className="bg-aqua">
-                            <a href="https://www.free-css.com/free-css-templates">Gardening</a>
-                        </span>
+                        {post?.Category?.map((cat, i) => <span key={i} className="bg-aqua">{cat?.title}</span>)}
                         <h4>
-                            <a href="pages/single.php">{post?.title}</a>
+                            <Link to={`post/${post?.id}`}>{post?.title}</Link>
                         </h4>
                         <small>
-                            <a href="pages/single.php">21 July, 2045</a>
+                            <Link to={`post/${post?.id}`}>{post?.createdAt}</Link>
                         </small>
                         <small>
-                            <a href="https://www.free-css.com/free-css-templates">by Amanda</a>
+                        <Link to={`post/${post?.id}`}>by {post?.User?.name}</Link>
                         </small>
                     </div>
                 </div>

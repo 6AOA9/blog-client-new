@@ -21,9 +21,7 @@ const TopBar = () => {
                         <div className="col-lg-4 hidden-md-down"></div>
                         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div className="topsearch text-right">
-                                <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                    <i className="fa fa-search"></i> Search
-                                </a>
+                                <i className="fa fa-user"></i> My account
                             </div>
                         </div>
                     </div>
