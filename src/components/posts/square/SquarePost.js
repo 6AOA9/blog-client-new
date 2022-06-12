@@ -1,7 +1,9 @@
-const SquarePost = () => {
+import { Link } from "react-router-dom"
+
+const SquarePost = ({post}) => {
     return (
         <div className="masonry-box post-media">
-            <img src="assets/images/upload/garden_cat_01.jpg" alt="website template image" className="img-fluid" />
+            <img src={post?.picture} alt={post?.title} className="img-fluid" />
             <div className="shadoweffect">
                 <div className="shadow-desc">
                     <div className="blog-meta">
@@ -9,7 +11,7 @@ const SquarePost = () => {
                             <a href="https://www.free-css.com/free-css-templates">Gardening</a>
                         </span>
                         <h4>
-                            <a href="pages/single.php">How to choose high quality soil for your gardens</a>
+                            <a href="pages/single.php">{post?.title}</a>
                         </h4>
                         <small>
                             <a href="pages/single.php">21 July, 2045</a>
