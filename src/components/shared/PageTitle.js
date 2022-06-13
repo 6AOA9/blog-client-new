@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 
 const PageTitle = ({title}) => {
+    
     return (
-        <div className="page-title wb">
+        <div className="page-title">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12">
