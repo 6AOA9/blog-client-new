@@ -15,8 +15,8 @@ const Menu = () => {
                             {
                                 appCtx?.siteData?.menu.map((item, i) => {
                                     return <li key={i} className="nav-item">
-                                    <Link className="nav-link color-green-hover" to={`category/${item.id}`}>{item.title}</Link>
-                                </li>
+                                        <Link className="nav-link color-green-hover" to={`category/${item.id}`}>{item.title}</Link>
+                                    </li>
                                 })
                             }
                         </ul>
