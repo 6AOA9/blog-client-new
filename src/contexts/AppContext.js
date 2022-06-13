@@ -12,9 +12,11 @@ const defaultSiteData = {
         twitter: null,
         youtube: null,
         latitude: 41.003935,
-        longitude: 28.6648233
+        longitude: 28.6648233,
     },
-    socialLinks: []
+    socialLinks: [],
+    recentPosts: [],
+    topPosts: []
 }
 
 export const AppProvider = ({children}) => {
@@ -30,6 +32,12 @@ export const AppProvider = ({children}) => {
                 }
                 if (data?.menu?.length) {
                     newSiteData.menu = data.menu
+                }
+                if (data?.recentPosts?.length) {
+                    newSiteData.recentPosts = data.recentPosts
+                }
+                if (data?.topPosts?.length) {
+                    newSiteData.topPosts = data.topPosts
                 }
                 setSiteData({
                     ...defaultSiteData,

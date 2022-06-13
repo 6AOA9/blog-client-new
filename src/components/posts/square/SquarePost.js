@@ -9,13 +9,13 @@ const SquarePost = ({post}) => {
                     <div className="blog-meta">
                         {post?.Category?.map((cat, i) => <span key={i} className="bg-aqua">{cat?.title}</span>)}
                         <h4>
-                            <Link to={`post/${post?.id}`}>{post?.title}</Link>
+                            <Link to={`/post/${post?.id}`}>{post?.title}</Link>
                         </h4>
                         <small>
-                            <Link to={`post/${post?.id}`}>{post?.createdAt}</Link>
+                            <Link to={`/post/${post?.id}`}>{post?.createdAt}</Link>
                         </small>
                         <small>
-                        <Link to={`post/${post?.id}`}>by {post?.User?.name}</Link>
+                        <Link to={`/post/${post?.id}`}>by {post?.User?.name}</Link>
                         </small>
                     </div>
                 </div>

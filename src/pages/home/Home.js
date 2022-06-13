@@ -19,11 +19,11 @@ const Home = () => {
         <>
             <TopPosts posts={posts.slice(0, 3)} />
             <Content>
-                    <div className="blog-list clearfix">
-                        {posts.slice(3, posts.length).map((post, i) => {
-                            return <WidePost key={i} post={post} />
-                        })}
-                    </div>
+                <div className="blog-list clearfix">
+                    {posts.slice(3, posts.length).map((post, i) => {
+                        return <WidePost key={i} post={post} />
+                    })}
+                </div>
             </Content>
         </>
     )
