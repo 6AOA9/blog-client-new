@@ -24,6 +24,8 @@ function App() {
 				<Route path="/sign-up" element={<SignUp />} />
 				<Route path="/account" element={<Account />}>
 					<Route path='/account/posts' element={<>sds</>} />
+					<Route path="/account/newPost" element={<>sds</>} />
+
 				</Route>
 				<Route path="*" element={<>Not found</>} />
 			</Routes>

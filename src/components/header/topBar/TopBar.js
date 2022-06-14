@@ -6,7 +6,7 @@ const TopBar = () => {
     const appCtx = useContext(AppContext)
     return (
         <>
-            <div className="topbar-section">
+            <div className="topbar-section" style={{ backgroundColor: "#d9f1c0" }}>
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-lg-4 col-md-6 col-sm-6 hidden-xs-down">

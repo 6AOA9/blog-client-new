@@ -10,6 +10,9 @@ const UserSidebar = () => {
                 <li className="list-group-item">
                     <Link to='settings'>Settings</Link>
                 </li>
+                <li className="list-group-item">
+                    <Link to='newPost'>New Article </Link>
+                </li>
             </ul>
         </div>
     )

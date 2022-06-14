@@ -41,7 +41,7 @@ const Posts = () => {
                             })}</td>
                             <td>{post?.createdAt}</td>
                             <td>
-                                <button>Delete</button>&nbsp;
+                                <button onClick={""} >Delete</button>&nbsp;
                                 <button>Edit</button>
                             </td>
                         </tr>
