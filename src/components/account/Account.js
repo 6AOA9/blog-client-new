@@ -14,14 +14,16 @@ const Account = () => {
             navigate('/sign-in')
         }
     }, [])
-    
+
     return (
-        <>
+        <div className="my-5">
         {
             (authCtx?.user?.role == '1') && (<Admin />)
+        }
+        {
             (authCtx?.user?.role == '2') && (<User />)
         }
-        </>
+        </div>
     )
 }
 

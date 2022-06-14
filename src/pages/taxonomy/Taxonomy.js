@@ -1,6 +1,10 @@
+import Content from "../../components/shared/Content"
+
 const Taxonomy = () => {
     return (
-        <div></div>
+        <Content>
+            blah blah
+        </Content>
     )
 }
 

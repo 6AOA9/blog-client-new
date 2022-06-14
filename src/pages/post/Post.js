@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Content from "../../components/shared/Content"
 import PageTitle from "../../components/shared/PageTitle"
@@ -8,9 +8,11 @@ import './Post.css'
 import { Link } from "react-router-dom"
 import Comments from "./partials/Comments"
 import AddComment from "./partials/AddComment"
+import { AuthContext } from "../../contexts/AuthContext"
 
 const Post = () => {
     const sendRequest = useRequest()
+    const authCtx = useContext(AuthContext)
     const { id } = useParams()
     const [post, setPost] = useState({})
     useEffect(() => {
@@ -67,7 +69,10 @@ const Post = () => {
                     <hr className="invis1" />
                     <Comments comments={post?.Comments} />
                     <hr className="invis1" />
-                    <AddComment />
+                    {authCtx.isAuthenticated ?
+                        <AddComment /> :
+                        <Link to='/sign-in'>Sign in to comment</Link>
+                    }
                 </div>
             </Content>
         </>

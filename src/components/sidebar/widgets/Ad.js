@@ -9,7 +9,7 @@ const Ads = () => {
             <div class="link-widget">
                 <ul>
                     {appCtx?.siteData?.menu?.map((ad, i) => {
-                        return <li key={i}><a href={`/ad/${ad.url}`}>{ad.picture}</a></li>
+                        return <li key={i}><a target='_blank' href={ad.url}>{ad.picture}</a></li>
                     })}
                 </ul>
             </div>

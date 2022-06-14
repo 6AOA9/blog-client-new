@@ -4,7 +4,6 @@ import { AppContext } from "../../../contexts/AppContext"
 
 const Menu = () => {
     const appCtx = useContext(AppContext)
-    console.log(appCtx)
     return (
         <header className="header">
             <div className="container">

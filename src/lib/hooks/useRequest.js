@@ -5,10 +5,12 @@ import { useNavigate } from "react-router-dom"
 export const useRequest = () => {
     const ctx = useContext(AuthContext)
     const navigate = useNavigate()
-    const sendRequest = (url, headers, body, config = {}, method = 'GET') => {
+    const sendRequest = (url, headers, body = {}, config = {}, method = 'GET') => {
         let options = {
             headers: {},
-            body
+        }
+        if (Object?.keys(body).length > 0) {
+            options['body'] = body
         }
         options.method = method
         if (config?.auth) {
@@ -19,6 +21,9 @@ export const useRequest = () => {
             options.body = JSON.stringify(body)
         }
         options.headers = { ...options.headers, ...headers }
+
+        console.log('OPTIONS', options)
+
         return fetch(url, options)
             .then(response => {
                 if (response.status == 401) {

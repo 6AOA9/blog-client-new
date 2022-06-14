@@ -39,7 +39,7 @@ const SignIn = () => {
                     <h4 style={{ background: "#000000", color: "white" }} className="small-title">Login Page</h4>
                     <div className="row">
                         <div className="col-lg-12 d-flex justify-content-center">
-                            <form action="#" method="post" className="form-wrapper">
+                            <div className="form-wrapper">
                                 <h4>Login</h4>
 
                                 <input
@@ -66,7 +66,7 @@ const SignIn = () => {
                                         Forget Password
                                     </button>
                                 </Link>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
