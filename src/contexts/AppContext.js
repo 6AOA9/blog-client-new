@@ -16,7 +16,8 @@ const defaultSiteData = {
     },
     socialLinks: [],
     recentPosts: [],
-    topPosts: []
+    topPosts: [],
+    randomAd: {}
 }
 
 export const AppProvider = ({children}) => {
