@@ -11,30 +11,25 @@ import Taxonomy from "./pages/taxonomy/Taxonomy";
 import { SignUp } from "./components/account/SignUp";
 
 function App() {
-  return (
-    <div id="wrapper">
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/category/:id" element={<Taxonomy taxonomy='category' />} />
-        <Route path="/tag/:id" element={<Taxonomy taxonomy='tag' />} />
-        <Route path="/post/:id" element={<Post />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+	return (
+		<div id="wrapper">
+			<Header />
+			<Routes>
+				<Route exact path="/" element={<Home />} />
+				<Route path="/blog" element={<Blog />} />
+				<Route path="/category/:id" element={<Taxonomy taxonomy='category' />} />
+				<Route path="/tag/:id" element={<Taxonomy taxonomy='tag' />} />
+				<Route path="/post/:id" element={<Post />} />
+				<Route path="/sign-in" element={<SignIn />} />
+				<Route path="/sign-up" element={<SignUp />} />
 
-        <Route path="/account" element={<Account />}>
-          <Route path="admin" element={<Account />}>
+				<Route path="/account" element={<Account />} />
 
-          </Route>
-          <Route path="user" element={<Account />}>
-
-          </Route>
-        </Route>
-      </Routes>
-      <Footer />
-    </div>
-  );
+				<Route path="*" element={<>Not found</>} />
+			</Routes>
+			<Footer />
+		</div>
+	);
 }
 
 export default App;

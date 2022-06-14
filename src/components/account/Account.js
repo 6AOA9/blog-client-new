@@ -1,17 +1,25 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
 import Admin from "./admin/Admin"
 import User from "./user/User"
 
 const Account = () => {
     
-    const appCtx = useContext(AuthContext)
+    const authCtx = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!authCtx.isAuthenticated) {
+            navigate('/sign-in')
+        }
+    }, [])
     
     return (
         <>
         {
-            (appCtx?.user?.role == '1') && (<Admin />)
-            (appCtx?.user?.role == '2') && (<User />)
+            (authCtx?.user?.role == '1') && (<Admin />)
+            (authCtx?.user?.role == '2') && (<User />)
         }
         </>
     )
