@@ -16,6 +16,22 @@ const Posts = () => {
             }
         })
     }, [])
+    // const deletPost = (id) => {
+    //     sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`, {}, {}, {
+    //         auth: true,
+    //     }, 'DELETE').then((response) => {
+    //         console.log(response)
+    //         if (response.success) {
+    //             console.log(response)
+    //         }
+    //     })
+    // }
+
+    // const handleRemoveItem = (e) => {
+    //     const post = e.target.getAttribute("post")
+    //     updateList(list.filter(item => item.post !== post));
+    // };
+
     return (
         <table className="w-100 table table-striped">
             <thead>
@@ -42,7 +58,6 @@ const Posts = () => {
                             <td>{post?.createdAt}</td>
                             <td>
                                 <button onClick={""} >Delete</button>&nbsp;
-                                <button>Edit</button>
                             </td>
                         </tr>
                     )

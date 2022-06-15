@@ -9,8 +9,11 @@ import Home from "./pages/home/Home";
 import Post from "./pages/post/Post";
 import Taxonomy from "./pages/taxonomy/Taxonomy";
 import { SignUp } from "./components/account/SignUp";
+import NewPosts from "./components/account/user/NewPost";
+import Posts from "./components/account/user/Posts";
 
-function App() {
+
+const App = () => {
 	return (
 		<div id="wrapper">
 			<Header />
@@ -22,11 +25,14 @@ function App() {
 				<Route path="/post/:id" element={<Post />} />
 				<Route path="/sign-in" element={<SignIn />} />
 				<Route path="/sign-up" element={<SignUp />} />
-				<Route path="/account" element={<Account />}>
-					<Route path='/account/posts' element={<>sds</>} />
-					<Route path="/account/newPost" element={<>sds</>} />
 
+
+				<Route path="/account" element={<Account />}>
+					<Route path='/account/posts' element={<Posts />} />
+					<Route path="/account/newPost" element={<NewPosts />} />
 				</Route>
+
+
 				<Route path="*" element={<>Not found</>} />
 			</Routes>
 			<Footer />

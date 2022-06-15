@@ -5,7 +5,7 @@ import Admin from "./admin/Admin"
 import User from "./user/User"
 
 const Account = () => {
-    
+
     const authCtx = useContext(AuthContext)
     const navigate = useNavigate()
 
@@ -17,12 +17,12 @@ const Account = () => {
 
     return (
         <div className="my-5">
-        {
-            (authCtx?.user?.role == '1') && (<Admin />)
-        }
-        {
-            (authCtx?.user?.role == '2') && (<User />)
-        }
+            {
+                (authCtx?.user?.role == '1') && (<Admin />)
+            }
+            {
+                (authCtx?.user?.role == '2') && (<User />)
+            }
         </div>
     )
 }

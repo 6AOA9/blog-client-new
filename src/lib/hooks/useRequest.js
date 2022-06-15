@@ -8,14 +8,14 @@ export const useRequest = () => {
     const sendRequest = (url, headers, body = {}, config = {}, method = 'GET') => {
         let options = {
             headers: {},
-        }
+        };
         if (Object?.keys(body).length > 0) {
             options['body'] = body
-        }
+        };
         options.method = method
         if (config?.auth) {
             options.headers['Authorization'] = 'Bearer ' + ctx?.token
-        }
+        };
         if (config.type === 'json') {
             options.headers['Content-Type'] = 'application/json'
             options.body = JSON.stringify(body)
@@ -38,6 +38,6 @@ export const useRequest = () => {
                 })
             })
             .catch(e => console.log(e))
-    }
+    };
     return sendRequest
 }
