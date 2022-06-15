@@ -2,7 +2,7 @@ function Delete() {
   
   return (
     <div>
-      <input type={"Submit"}></input>
+      <button onClick={""} >Delete</button>
     </div>
   );
 }
