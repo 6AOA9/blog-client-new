@@ -16,16 +16,27 @@ const Posts = () => {
             }
         })
     }, [])
-    // const deletPost = (id) => {
-    //     sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`, {}, {}, {
-    //         auth: true,
-    //     }, 'DELETE').then((response) => {
-    //         console.log(response)
-    //         if (response.success) {
-    //             console.log(response)
-    //         }
-    //     })
+    // const deletePost = (id) => {
+    //     const res = await fetch(`${process.env.REACT_APP_API_URL}/posts/${id}`, {
+    //         method: 'DELETE'
+    //     }).then((result) => {
+    //         result.json().then((resp) => {
+    //             console.log(resp);
+    //         })
+    //     });
     // }
+
+    const deletPost = (id) => {
+        sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`, {}, {}, {
+            auth: true,
+        }, 'DELETE').then((response) => {
+            console.log(response)
+            if (response.success) {
+                console.log(response)
+            }
+        })
+
+    }
 
     // const handleRemoveItem = (e) => {
     //     const post = e.target.getAttribute("post")
@@ -57,7 +68,7 @@ const Posts = () => {
                             })}</td>
                             <td>{post?.createdAt}</td>
                             <td>
-                                <button onClick={""} >Delete</button>&nbsp;
+                                <button onClick={deletPost} >Delete</button>
                             </td>
                         </tr>
                     )

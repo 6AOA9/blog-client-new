@@ -1,80 +1,55 @@
-import { useEffect, useState } from "react";
-import { useRequest } from "../../../lib/hooks/useRequest";
 
-const NewPosts = () => {
-  const sendRequest = useRequest();
-  const [newPost, setNewPosts] = useState([]);
-  const [postForm, setPostForm] = useState({
-    title: '', content: '',
-    categories: '', excerpt: '', picture: '', tags: ''
-  })
+import { useRef } from "react"
+import { useRequest } from "../../../lib/hooks/useRequest"
 
-  useEffect(() => {
-    sendRequest(
-      `${process.env.REACT_APP_API_URL}/posts/`,
-      {},
-      {},
-      {
-        auth: true,
-      },
-      "GET"
-    ).then((response) => {
-      console.log(response);
-      if (response.success) {
-        setNewPosts(response.data);
-      }
-    });
-  }, []);
-  console.log(postForm)
+const AddPost = () => {
+  const commentRef = useRef()
+  const excerptRef = useRef()
+  const tagsRef = useRef()
+  const pictureRef = useRef()
+  const titleRef = useRef()
+  const categoriesRef = useRef()
+
+
+
+
+
+  const sendRequest = useRequest()
+  const addpost = () => {
+    sendRequest(`${process.env.REACT_APP_API_URL}/posts`, {}, {
+      title: titleRef.current.value,
+      content: commentRef.current.value,
+      excerpt: excerptRef.current.value,
+      tags: tagsRef.current.value,
+      picture: pictureRef.current.value,
+
+      categories: categoriesRef.current.value,
+
+
+
+    }, { auth: true, type: 'json' }, 'post')
+      .then((comment) => {
+        window.alert(comment?.messages?.join(' '))
+      })
+  }
   return (
-    <div className="bo">
-      <h2>Write New Article </h2>
-      <table className="w-100 table table-striped"  >
-        <thead >
-          <tr>
-            <tr>
-              <h4>Title:</h4>
-            </tr>
-            <input type={"text"} vlaue={postForm.title} style={{ width: "100%" }}
-              onChange={(e) => setPostForm({ ...postForm, title: e.target.value })}
-            />
-            <tr>
-              <td>
-                <h4>Category:</h4>
-              </td>
-
-              <td>
-                <input type={"option"} style={{ width: "200px" }}
-                //  onChange={e => setTitle(e.target.value)}
-                />
-              </td>
-
-              <td>
-                <h4>Photo:</h4>
-              </td>
-
-              <td>
-                <input type={"file"}
-                />
-              </td>
-            </tr>
-
-            <tr>
-              <h4>Content</h4>
-            </tr>
-
-
-
-
-            <tr>
-              <button type="submit" style={{ marginTop: "15px" }}>Publish Now</button>
-            </tr>
-          </tr>
-        </thead>
-      </table>
+    <div className="custombox clearfix">
+      <h4 className="small-title">Create new article</h4>
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="form-wrapper">
+            <input type={"text"} ref={titleRef} className="form-control" placeholder="Title" />
+            <input type={"text"} ref={excerptRef} className="form-control" placeholder="Excerpt" />
+            <input type={"tags"} ref={tagsRef} className="form-control" placeholder="Tag" />
+            <input type={"select"} ref={categoriesRef} className="form-control" placeholder="Category" />
+            <input type={"file"} ref={pictureRef} className="form-control" placeholder="picture" />
+            <textarea ref={commentRef} className="form-control" placeholder="Your Article"></textarea>
+            <button onClick={addpost} type="button" className="btn btn-primary">Submits</button>
+          </div>
+        </div>
+      </div>
     </div>
-
-  );
+  )
 }
 
-export default NewPosts;
+export default AddPost
