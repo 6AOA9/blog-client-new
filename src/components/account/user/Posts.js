@@ -35,7 +35,6 @@ const Posts = () => {
                 console.log(response)
             }
         })
-
     }
 
     // const handleRemoveItem = (e) => {
