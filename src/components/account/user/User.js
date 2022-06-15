@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Posts from "./Posts";
 import UserSidebar from "./UserSidebar";
-import NewPosts from "./NewPost";
+import AddPost from "./AddPost";
+import EditPost from "./EditPost";
 
 const User = () => {
   return (
@@ -13,7 +14,8 @@ const User = () => {
             <Routes>
               <Route path="/posts" element={<Posts />} />
               <Route path="/settings" element={<>settings</>} />
-              <Route path="/newPost" element={<NewPosts />} />
+              <Route path="/add-post" element={<AddPost />} />
+              <Route path="/edit/:id" element={<EditPost />} />
             </Routes>
           </div>
         </div>
