@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useRequest } from "../../../lib/hooks/useRequest"
+import Delete from "./Delete"
 
 const Posts = () => {
 
@@ -41,8 +42,9 @@ const Posts = () => {
                             })}</td>
                             <td>{post?.createdAt}</td>
                             <td>
-                                <button onClick={""} >Delete</button>&nbsp;
-                                <button>Edit</button>
+
+                                <Delete/>
+                                
                             </td>
                         </tr>
                     )
