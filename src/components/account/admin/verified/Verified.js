@@ -1,40 +1,51 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react";
 // import { useRequest } from "./../../../../lib/hooks/useRequest"
-import { useRequest } from "../../../../lib/hooks/useRequest"
+import { useRequest } from "../../../../lib/hooks/useRequest";
 // import { Link } from "react-router-dom"
 
 function Verified() {
-
-
-  const sendRequest = useRequest()
-  const [posts, setPosts] = useState([])
+  const sendRequest = useRequest();
+  const [posts, setPosts] = useState([]);
+  // const refIsVerified = useRef();
 
   useEffect(() => {
-      sendRequest(`${process.env.REACT_APP_API_URL}/posts/`, {}, {}, {
+    sendRequest(
+      `${process.env.REACT_APP_API_URL}/posts/`,
+      {},
+      {},
+      {
+        auth: true,
+      },
+      "GET"
+    ).then((response) => {
+      if (response?.success) {
+        setPosts(response.data);
+      }
+    });
+  }, []);
+
+  const postVerified = (id) => {
+    if (window.confirm("Do you want to verified this post")) {
+      sendRequest(
+        `${process.env.REACT_APP_API_URL}/posts/verified/${id}`,
+        {},
+        {
+          
+        },
+        {
           auth: true,
-      }, 'GET').then((response) => {
-          if (response?.success) {
-              setPosts(response.data)
-          }
-      })
-  }, [])
-
-  // const deletPost = (id) => {
-  //     if (window.confirm('Do you want to delete this post')) {
-  //         sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`, {}, {}, {
-  //             auth: true,
-  //         }, 'DELETE').then((response) => {
-  //             console.log(response)
-  //             if (response?.success) {
-  //                 const currentPosts = [...posts]
-  //                 const filteredPosts = currentPosts.filter((post) => post.id != id)
-  //                 setPosts(filteredPosts)
-  //             }
-  //         })
-  //     }
-  // }
-
-
+        },
+        "PUT"
+      ).then((response) => {
+        console.log(response);
+        if (response?.success) {
+          const currentPosts = [...posts];
+          const filteredPosts = currentPosts.filter((post) => post.id != id);
+          setPosts(filteredPosts);
+        }
+      });
+    }
+  };
 
   return (
     <div>
@@ -45,9 +56,10 @@ function Verified() {
             <th>Category</th>
             <th>Date</th>
             <th>Views</th>
+            <th>Verified</th>
           </tr>
         </thead>
-        
+
         <tbody>
           {posts.map((post, i) => {
             return (
@@ -64,15 +76,24 @@ function Verified() {
                   })}
                 </td>
                 <td>{post?.createdAt}</td>
+                <td>{post?.views}</td>
+                <td>{post?.verified ? "Yes" : "No"} </td>
+
                 <td>
-                  {post?.views}
+                  <button
+                    onClick={() => {
+                      postVerified(post.id);
+                    }}
+                    className="btn btn-primary"
+                  >
+                    Verified
+                  </button>
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      
     </div>
   );
 }
