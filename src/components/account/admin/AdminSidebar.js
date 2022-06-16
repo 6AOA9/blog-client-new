@@ -9,7 +9,7 @@ const AdminSidebar = () => {
           <Link to="categories">Categories</Link>
         </li>
         <li className="list-group-item">
-          <Link to="settings">Settings</Link>
+          <Link to="tag">Tag</Link>
         </li>
         <li className="list-group-item">
           <Link to="add-post">New Article </Link>

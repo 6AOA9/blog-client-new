@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
+
 import AdminSidebar from "./AdminSidebar";
-import AddCat from "./AddCat";
+import AddCat from "./categories/AddCat";
+import AddTag from "./tag/AddTag";
 
 
 
@@ -15,7 +17,7 @@ const Admin = () => {
           <div className="col-lg-9">
             <Routes>
               <Route path="/categories" element={<AddCat/>} />
-              {/* <Route path="/add-post" element={<AddPost />} /> */}
+              <Route path="/tag" element={<AddTag/>} />
               {/* <Route path="/edit/:id" element={<EditPost />} /> */}
             </Routes>
           </div>
