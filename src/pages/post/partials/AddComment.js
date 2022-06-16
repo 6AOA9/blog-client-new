@@ -7,7 +7,7 @@ const AddComment = () => {
     const addComment = () => {
         sendRequest(`${process.env.REACT_APP_API_URL}/comments`, {}, {
             content: commentRef.current.value
-        }, {auth: true, type: 'json'}, 'post')
+        }, { auth: true, type: 'json' }, 'post')
             .then((comment) => {
                 window.alert(comment?.messages?.join(' '))
             })

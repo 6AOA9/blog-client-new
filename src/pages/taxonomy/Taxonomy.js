@@ -3,7 +3,7 @@ import Content from "../../components/shared/Content"
 const Taxonomy = () => {
     return (
         <Content>
-            blah blah
+            HOHOHOH
         </Content>
     )
 }

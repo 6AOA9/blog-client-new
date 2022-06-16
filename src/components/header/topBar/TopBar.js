@@ -22,8 +22,8 @@ const TopBar = () => {
                         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div className="topsearch text-right">
                                 <Link to={"/sign-up"} >
-                                <i className="fa fa-user"></i> My account
-                                
+                                    <i className="fa fa-user"></i> My account
+
                                 </Link>
                             </div>
                         </div>

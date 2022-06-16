@@ -27,18 +27,20 @@ export const AppProvider = ({children}) => {
         const settings = sendRequest(`${process.env.REACT_APP_API_URL}/settings`)
             .then(data => {
                 const newSiteData = {}
-                if (Object.keys(data?.options)?.length) {
-                    newSiteData.options = data.options
-                    newSiteData.socialLinks = getSocialLinks(data.options)
+                if (data?.options) {
+                    if (Object?.keys(data?.options)?.length) {
+                        newSiteData.options = data?.options
+                        newSiteData.socialLinks = getSocialLinks(data?.options)
+                    }
                 }
                 if (data?.menu?.length) {
-                    newSiteData.menu = data.menu
+                    newSiteData.menu = data?.menu
                 }
                 if (data?.recentPosts?.length) {
-                    newSiteData.recentPosts = data.recentPosts
+                    newSiteData.recentPosts = data?.recentPosts
                 }
                 if (data?.topPosts?.length) {
-                    newSiteData.topPosts = data.topPosts
+                    newSiteData.topPosts = data?.topPosts
                 }
                 setSiteData({
                     ...defaultSiteData,

@@ -9,8 +9,12 @@ import Home from "./pages/home/Home";
 import Post from "./pages/post/Post";
 import Taxonomy from "./pages/taxonomy/Taxonomy";
 import { SignUp } from "./components/account/SignUp";
+import AddPost from "./components/account/user/AddPost";
+import Posts from "./components/account/user/Posts";
+import EditPost from "./components/account/user/EditPost";
+import Categories from "./components/sidebar/widgets/Categories";
 
-function App() {
+const App = () => {
 	return (
 		<div id="wrapper">
 			<Header />
@@ -22,11 +26,22 @@ function App() {
 				<Route path="/post/:id" element={<Post />} />
 				<Route path="/sign-in" element={<SignIn />} />
 				<Route path="/sign-up" element={<SignUp />} />
-				<Route path="/account" element={<Account />}>
-					<Route path='/account/posts' element={<>sds</>} />
-					<Route path="/account/newPost" element={<>sds</>} />
 
+
+				<Route path="/account" element={<Account />}>
+					<Route path='/account/posts' element={<Posts />} />
+					<Route path="/account/add-post" element={<AddPost />} />
+					<Route path="/account/edit/:id" element={<EditPost />} />
 				</Route>
+
+				<Route path="/account" element={<Account />}>
+					<Route path='/account/categories' element={<Categories />} />
+					{/* <Route path="/account/add-post" element={<AddPost />} /> */}
+					{/* <Route path="/account/edit/:id" element={<EditPost />} /> */}
+				</Route>
+				
+
+
 				<Route path="*" element={<>Not found</>} />
 			</Routes>
 			<Footer />
