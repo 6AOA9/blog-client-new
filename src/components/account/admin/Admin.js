@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import AdminSidebar from "./AdminSidebar";
 import AddCat from "./categories/AddCat";
 import AddTag from "./tag/AddTag";
-
+import Verified from "./verified/Verified";
 
 
 
@@ -18,7 +18,9 @@ const Admin = () => {
             <Routes>
               <Route path="/categories" element={<AddCat/>} />
               <Route path="/tag" element={<AddTag/>} />
-              {/* <Route path="/edit/:id" element={<EditPost />} /> */}
+              <Route path="/verified" element={<Verified/>} />
+
+
             </Routes>
           </div>
         </div>
