@@ -13,7 +13,8 @@ import Posts from "./components/account/user/Posts";
 import EditPost from "./components/account/user/EditPost";
 import Categories from "./components/sidebar/widgets/Categories";
 import AddTag from "./components/account/admin/tag/AddTag";
-// import Tag from "./components/sidebar/widgets/Tags";
+import Verified from "./components/account/admin/verified/Verified";
+
 
 const App = () => {
 	return (
@@ -38,7 +39,9 @@ const App = () => {
 				<Route path="/account" element={<Account />}>
 					<Route path='/account/categories' element={<Categories />} />
 					<Route path="/account/tag" element={<AddTag />} />
-					{/* <Route path="/account/edit/:id" element={<EditPost />} /> */}
+					<Route path="/account/verified" element={<Verified />} />
+
+
 				</Route>
 
 

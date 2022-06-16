@@ -12,7 +12,7 @@ const AdminSidebar = () => {
                     <Link to="tag">Tag</Link>
                 </li>
                 <li className="list-group-item">
-                    <Link to="add-post">New Article </Link>
+                    <Link to="verified">Posts Verified </Link>
                 </li>
             </ul>
         </div>
