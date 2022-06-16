@@ -11,6 +11,10 @@ import { SignUp } from "./components/account/SignUp";
 import AddPost from "./components/account/user/AddPost";
 import Posts from "./components/account/user/Posts";
 import EditPost from "./components/account/user/EditPost";
+import Categories from "./components/sidebar/widgets/Categories";
+import AddTag from "./components/account/admin/tag/AddTag";
+// import Tag from "./components/sidebar/widgets/Tags";
+
 const App = () => {
 	return (
 		<div id="wrapper">
@@ -30,10 +34,19 @@ const App = () => {
 					<Route path="/account/add-post" element={<AddPost />} />
 					<Route path="/account/edit/:id" element={<EditPost />} />
 				</Route>
+
+				<Route path="/account" element={<Account />}>
+					<Route path='/account/categories' element={<Categories />} />
+					<Route path="/account/tag" element={<AddTag />} />
+					{/* <Route path="/account/edit/:id" element={<EditPost />} /> */}
+				</Route>
+
+
+
 				<Route path="*" element={<>Not found</>} />
-			</Routes>
+			</Routes >
 			<Footer />
-		</div>
+		</div >
 	);
 }
 

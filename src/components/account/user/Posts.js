@@ -57,9 +57,9 @@ const Posts = () => {
                             })}</td>
                             <td>{post?.createdAt}</td>
                             <td>
-                                <button onClick={() => { deletPost(post.id) }}>Delete</button>
+                                <button onClick={() => { deletPost(post.id) }} className="btn btn-primary" >Delete</button>
                                 <Link to={`/account/edit/${post.id}`}>
-                                    <button>Edit</button>
+                                    <button className="btn btn-primary" style={{ marginLeft: "8px" }}   >Edit</button >
                                 </Link>
                             </td>
                         </tr>
