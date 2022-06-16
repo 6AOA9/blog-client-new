@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useRequest } from "../../../lib/hooks/useRequest"
 
 const EditPost = () => {
+	const navigate = useNavigate()
     const { id } = useParams()
     const sendRequest = useRequest()
     const [post, setPost] = useState({
@@ -11,7 +12,7 @@ const EditPost = () => {
         content: ''
     })
     useEffect(() => {
-        sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`)
+        sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`, {}, {}, {auth: true})
             .then(response => {
                 if (response?.success) {
                     setPost(response?.data)
@@ -32,19 +33,21 @@ const EditPost = () => {
 	const [selectedCategories, setSelectedCategories] = useState([])
 	const handleTagToggle = (e) => {
 		const tagsClone = [...selectedTags]
-		if (e.target.checked) {
-			tagsClone.push(e.target.value)
+		const value = parseInt(e.target.value)
+		if (tagsClone.indexOf(value) == -1) {
+			tagsClone.push(value)
 		} else {
-			tagsClone.splice(e.target.value, 1)
+			tagsClone.splice(tagsClone.indexOf(value), 1)
 		}
 		setSelectedTags(tagsClone)
 	}
 	const handleCategoryToggle = (e) => {
 		const categoriesClone = [...selectedCategories]
-		if (e.target.checked) {
-			categoriesClone.push(e.target.value)
+		const value = parseInt(e.target.value)
+		if (categoriesClone.indexOf(value) == -1) {
+			categoriesClone.push(value)
 		} else {
-			categoriesClone.splice(e.target.value, 1)
+			categoriesClone.splice(categoriesClone.indexOf(value), 1)
 		}
 		setSelectedCategories(categoriesClone)
 	}
@@ -65,17 +68,24 @@ const EditPost = () => {
 		formdata.append('title', titleRef.current.value)
 		formdata.append('excerpt', excerptRef.current.value)
 		formdata.append('content', contentRef.current.value)
-		formdata.append('categories', selectedCategories)
-		formdata.append('tags', selectedTags)
+		for (var i = 0; i < selectedCategories.length; i++) {
+			formdata.append('categories[]', selectedCategories[i])
+		}
+		for (var i = 0; i < selectedTags.length; i++) {
+			formdata.append('tags[]', selectedTags[i])
+		}
 		formdata.append('picture', pictureRef.current.files[0])
-		sendRequest(`${process.env.REACT_APP_API_URL}/posts`, {}, formdata, { auth: true }, 'post')
+		sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`, {}, formdata, { auth: true }, 'put')
 			.then((response) => {
 				window.alert(response?.messages?.join(' '))
+				if (response?.success) {
+					navigate('/account/posts')
+				}
 			})
 	}
     return (
 		<div className="custombox clearfix">
-			<h4 className="small-title">Create new article</h4>
+			<h4 className="small-title">Edit Post</h4>
 			<div className="row">
 				<div className="col-lg-12">
 					<div className="form-wrapper">
@@ -120,7 +130,9 @@ const EditPost = () => {
 								}
 							</div>
 						</div>
-						
+						{
+							post?.picture && <img src={post?.picture} width='100' style={{height: 'auto'}} />
+						}
 						<input type={"file"} ref={pictureRef} className="form-control" placeholder="picture" />
 						<textarea ref={contentRef} className="form-control" placeholder="Your Article" defaultValue={post?.content}></textarea>
 						<button onClick={addpost} type="button" className="btn btn-primary">Submit</button>

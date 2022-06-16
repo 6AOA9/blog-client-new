@@ -1,8 +1,10 @@
 
 import { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useRequest } from "../../../lib/hooks/useRequest"
 
 const AddPost = () => {
+	const navigate = useNavigate()
 	const contentRef = useRef()
 	const excerptRef = useRef()
 	const pictureRef = useRef()
@@ -16,7 +18,7 @@ const AddPost = () => {
 		if (e.target.checked) {
 			tagsClone.push(e.target.value)
 		} else {
-			tagsClone.splice(e.target.value, 1)
+			tagsClone.splice(tagsClone.indexOf(e.target.value), 1)
 		}
 		setSelectedTags(tagsClone)
 	}
@@ -25,7 +27,7 @@ const AddPost = () => {
 		if (e.target.checked) {
 			categoriesClone.push(e.target.value)
 		} else {
-			categoriesClone.splice(e.target.value, 1)
+			categoriesClone.splice(categoriesClone.indexOf(e.target.value), 1)
 		}
 		setSelectedCategories(categoriesClone)
 	}
@@ -57,11 +59,14 @@ const AddPost = () => {
 		sendRequest(`${process.env.REACT_APP_API_URL}/posts`, {}, formdata, { auth: true }, 'post')
 			.then((response) => {
 				window.alert(response?.messages?.join(' '))
+				if (response?.success) {
+					navigate('/account/posts')
+				}
 			})
 	}
 	return (
 		<div className="custombox clearfix">
-			<h4 className="small-title">Create new article</h4>
+			<h4 className="small-title">Create Post</h4>
 			<div className="row">
 				<div className="col-lg-12">
 					<div className="form-wrapper">
