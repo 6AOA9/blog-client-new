@@ -15,7 +15,7 @@ const UserSidebar = () => {
                 </li>
             </ul>
         </div>
-    )
-}
+    );
+};
 
 export default UserSidebar

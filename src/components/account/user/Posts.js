@@ -32,11 +32,6 @@ const Posts = () => {
         }
     }
 
-    // const handleRemoveItem = (e) => {
-    //     const post = e.target.getAttribute("post")
-    //     updateList(list.filter(item => item.post !== post));
-    // };
-
     return (
         <table className="w-100 table table-striped">
             <thead>
@@ -62,9 +57,9 @@ const Posts = () => {
                             })}</td>
                             <td>{post?.createdAt}</td>
                             <td>
-                                <button onClick={() => {deletPost(post.id)}} className="btn btn-primary" >Delete</button>
+                                <button onClick={() => { deletPost(post.id) }} className="btn btn-primary" >Delete</button>
                                 <Link to={`/account/edit/${post.id}`}>
-                                    <button className="btn btn-primary" style={{marginLeft: "8px"}}   >Edit</button >
+                                    <button className="btn btn-primary" style={{ marginLeft: "8px" }}   >Edit</button >
                                 </Link>
                             </td>
                         </tr>

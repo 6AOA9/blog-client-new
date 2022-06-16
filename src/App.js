@@ -5,7 +5,6 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Blog from "./pages/blog/Blog";
 import Home from "./pages/home/Home";
-// import { Login } from "./pages/auth/login/Login";
 import Post from "./pages/post/Post";
 import Taxonomy from "./pages/taxonomy/Taxonomy";
 import { SignUp } from "./components/account/SignUp";
@@ -15,7 +14,7 @@ import EditPost from "./components/account/user/EditPost";
 import Categories from "./components/sidebar/widgets/Categories";
 import AddTag from "./components/account/admin/tag/AddTag";
 import Verified from "./components/account/admin/verified/Verified";
-
+import Settings from "./components/account/user/Settings";
 
 const App = () => {
 	return (
@@ -35,6 +34,7 @@ const App = () => {
 					<Route path='/account/posts' element={<Posts />} />
 					<Route path="/account/add-post" element={<AddPost />} />
 					<Route path="/account/edit/:id" element={<EditPost />} />
+					<Route path="/account/settings" element={<Settings />} />
 				</Route>
 
 				<Route path="/account" element={<Account />}>
@@ -44,13 +44,13 @@ const App = () => {
 
 
 				</Route>
-				
+
 
 
 				<Route path="*" element={<>Not found</>} />
-			</Routes>
+			</Routes >
 			<Footer />
-		</div>
+		</div >
 	);
 }
 
