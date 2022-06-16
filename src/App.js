@@ -5,14 +5,12 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Blog from "./pages/blog/Blog";
 import Home from "./pages/home/Home";
-// import { Login } from "./pages/auth/login/Login";
 import Post from "./pages/post/Post";
 import Taxonomy from "./pages/taxonomy/Taxonomy";
 import { SignUp } from "./components/account/SignUp";
-import NewPosts from "./components/account/user/NewPost";
+import AddPost from "./components/account/user/AddPost";
 import Posts from "./components/account/user/Posts";
-
-
+import EditPost from "./components/account/user/EditPost";
 const App = () => {
 	return (
 		<div id="wrapper">
@@ -29,10 +27,9 @@ const App = () => {
 
 				<Route path="/account" element={<Account />}>
 					<Route path='/account/posts' element={<Posts />} />
-					<Route path="/account/newPost" element={<NewPosts />} />
+					<Route path="/account/add-post" element={<AddPost />} />
+					<Route path="/account/edit/:id" element={<EditPost />} />
 				</Route>
-
-
 				<Route path="*" element={<>Not found</>} />
 			</Routes>
 			<Footer />

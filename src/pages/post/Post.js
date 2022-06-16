@@ -18,9 +18,8 @@ const Post = () => {
     useEffect(() => {
         sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`)
             .then((response) => {
-                if (response.success) {
-                    console.log(response.data)
-                    setPost(response.data)
+                if (response?.success) {
+                    setPost(response?.data)
                 }
             })
     }, [id])
