@@ -4,9 +4,9 @@ import { AppContext } from "../../../contexts/AppContext"
 const Ads = () => {
     const appCtx = useContext(AppContext)
     return (
-        <div class="widget">
-            <h2 class="widget-title">Ads</h2>
-            <div class="link-widget">
+        <div className="widget">
+            <h2 className="widget-title">Ads</h2>
+            <div className="link-widget">
                 <ul>
                     {appCtx?.siteData?.menu?.map((ad, i) => {
                         return <li key={i}><a target='_blank' href={ad.url}>{ad.picture}</a></li>
