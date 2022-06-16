@@ -3,6 +3,7 @@ import Posts from "./Posts";
 import UserSidebar from "./UserSidebar";
 import AddPost from "./AddPost";
 import EditPost from "./EditPost";
+import Settings from "./Settings";
 
 const User = () => {
   return (
@@ -13,7 +14,7 @@ const User = () => {
           <div className="col-lg-9">
             <Routes>
               <Route path="/posts" element={<Posts />} />
-              <Route path="/settings" element={<>settings</>} />
+              <Route path="/settings" element={<Settings />} />
               <Route path="/add-post" element={<AddPost />} />
               <Route path="/edit/:id" element={<EditPost />} />
             </Routes>

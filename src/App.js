@@ -14,7 +14,7 @@ import EditPost from "./components/account/user/EditPost";
 import Categories from "./components/sidebar/widgets/Categories";
 import AddTag from "./components/account/admin/tag/AddTag";
 import Verified from "./components/account/admin/verified/Verified";
-
+import Settings from "./components/account/user/Settings";
 
 const App = () => {
 	return (
@@ -34,6 +34,7 @@ const App = () => {
 					<Route path='/account/posts' element={<Posts />} />
 					<Route path="/account/add-post" element={<AddPost />} />
 					<Route path="/account/edit/:id" element={<EditPost />} />
+					<Route path="/account/settings" element={<Settings />} />
 				</Route>
 
 				<Route path="/account" element={<Account />}>

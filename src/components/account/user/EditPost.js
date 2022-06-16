@@ -4,26 +4,26 @@ import { useRequest } from "../../../lib/hooks/useRequest"
 
 const EditPost = () => {
 	const navigate = useNavigate()
-    const { id } = useParams()
-    const sendRequest = useRequest()
-    const [post, setPost] = useState({
-        title: '',
-        excerpt: '',
-        content: ''
-    })
-    useEffect(() => {
-        sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`, {}, {}, {auth: true})
-            .then(response => {
-                if (response?.success) {
-                    setPost(response?.data)
-                    const postCategories = response?.data?.Categories?.map((c) => c.id)
-                    const postTags = response?.data?.Tags?.map((t) => t.id)
-                    setSelectedCategories(postCategories)
-                    setSelectedTags(postTags)
-                }
-            })
-    }, [])
-    const contentRef = useRef()
+	const { id } = useParams()
+	const sendRequest = useRequest()
+	const [post, setPost] = useState({
+		title: '',
+		excerpt: '',
+		content: ''
+	})
+	useEffect(() => {
+		sendRequest(`${process.env.REACT_APP_API_URL}/posts/${id}`, {}, {}, { auth: true })
+			.then(response => {
+				if (response?.success) {
+					setPost(response?.data)
+					const postCategories = response?.data?.Categories?.map((c) => c.id)
+					const postTags = response?.data?.Tags?.map((t) => t.id)
+					setSelectedCategories(postCategories)
+					setSelectedTags(postTags)
+				}
+			})
+	}, [])
+	const contentRef = useRef()
 	const excerptRef = useRef()
 	const pictureRef = useRef()
 	const titleRef = useRef()
@@ -83,18 +83,18 @@ const EditPost = () => {
 				}
 			})
 	}
-    return (
+	return (
 		<div className="custombox clearfix">
 			<h4 className="small-title">Edit Post</h4>
 			<div className="row">
 				<div className="col-lg-12">
 					<div className="form-wrapper">
 						<input type={"text"}
-                             onChange={(e) => {setPost({...post, title: e.target.value})}}
-                             value={post?.title} ref={titleRef} className="form-control" placeholder="Title" />
+							onChange={(e) => { setPost({ ...post, title: e.target.value }) }}
+							value={post?.title} ref={titleRef} className="form-control" placeholder="Title" />
 						<input type={"text"}
-                            onChange={(e) => {setPost({...post, excerpt: e.target.value})}}
-                            value={post?.excerpt} ref={excerptRef} className="form-control" placeholder="Excerpt" />
+							onChange={(e) => { setPost({ ...post, excerpt: e.target.value }) }}
+							value={post?.excerpt} ref={excerptRef} className="form-control" placeholder="Excerpt" />
 						<h4>Select Post Tags</h4>
 						<div className="container-fluid">
 							<div className="row mb-4">
@@ -103,8 +103,8 @@ const EditPost = () => {
 										return (
 											<div key={i} className='my-2 col-md-4 col-lg-3'>
 												<input
-                                                    checked={selectedTags.includes(tag.id)}
-                                                    onChange={handleTagToggle} type='checkbox' value={tag.id} id={`tag-${tag.id}`} />&nbsp;
+													checked={selectedTags.includes(tag.id)}
+													onChange={handleTagToggle} type='checkbox' value={tag.id} id={`tag-${tag.id}`} />&nbsp;
 												<label htmlFor={`tag-${tag.id}`}>{tag.title}</label>
 											</div>
 										)
@@ -121,8 +121,8 @@ const EditPost = () => {
 										return (
 											<div key={i} className='my-2 col-md-4 col-lg-3'>
 												<input
-                                                    checked={selectedCategories.includes(category.id)}
-                                                    onChange={handleCategoryToggle} type='checkbox' value={category.id} id={`category-${category.id}`} />&nbsp;
+													checked={selectedCategories.includes(category.id)}
+													onChange={handleCategoryToggle} type='checkbox' value={category.id} id={`category-${category.id}`} />&nbsp;
 												<label htmlFor={`category-${category.id}`}>{category.title}</label>
 											</div>
 										)
@@ -131,7 +131,7 @@ const EditPost = () => {
 							</div>
 						</div>
 						{
-							post?.picture && <img src={post?.picture} width='100' style={{height: 'auto'}} />
+							post?.picture && <img src={post?.picture} width='100' style={{ height: 'auto' }} />
 						}
 						<input type={"file"} ref={pictureRef} className="form-control" placeholder="picture" />
 						<textarea ref={contentRef} className="form-control" placeholder="Your Article" defaultValue={post?.content}></textarea>
