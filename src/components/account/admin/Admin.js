@@ -4,6 +4,8 @@ import AdminSidebar from "./AdminSidebar";
 import AddCat from "./categories/AddCat";
 import AddTag from "./tag/AddTag";
 import Verified from "./verified/Verified";
+import Options from "./options/Options"
+import Comments from "./comments/comment"
 
 
 
@@ -19,8 +21,8 @@ const Admin = () => {
               <Route path="/categories" element={<AddCat />} />
               <Route path="/tag" element={<AddTag />} />
               <Route path="/verified" element={<Verified />} />
-
-
+              <Route path="/edit-options" element={<Options />} />
+              <Route path="/delete-comments" element={<comment />} />
             </Routes>
           </div>
         </div>

@@ -15,6 +15,8 @@ import Categories from "./components/sidebar/widgets/Categories";
 import AddTag from "./components/account/admin/tag/AddTag";
 import Verified from "./components/account/admin/verified/Verified";
 import Settings from "./components/account/user/Settings";
+import Comments from "./pages/post/partials/Comments";
+import Options from "./components/account/admin/options/Options";
 
 const App = () => {
 	return (
@@ -41,6 +43,10 @@ const App = () => {
 					<Route path='/account/categories' element={<Categories />} />
 					<Route path="/account/tag" element={<AddTag />} />
 					<Route path="/account/verified" element={<Verified />} />
+					<Route path="/account/options" element={<Options />} />
+					<Route path="/account/comments" element={<Comments />} />
+
+
 
 
 				</Route>

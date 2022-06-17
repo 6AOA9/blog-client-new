@@ -14,6 +14,12 @@ const AdminSidebar = () => {
                 <li className="list-group-item">
                     <Link to="verified">Posts Verified </Link>
                 </li>
+                <li className="list-group-item">
+                    <Link to="EditOptions">Edit Options</Link>
+                </li>
+                <li className="list-group-item">
+                    <Link to="DeleteUserComments">Delete Comments</Link>
+                </li>
             </ul>
         </div>
     );
