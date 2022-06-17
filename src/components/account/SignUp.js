@@ -42,7 +42,7 @@ export const SignUp = () => {
                     <h4 style={{ background: "#000000", color: "white" }} className="small-title">Registry Page</h4>
                     <div className="row">
                         <div className="col-lg-12 d-flex justify-content-center">
-                            <div className="form-wrapper">
+                            <div className="form-wrapper w-75">
                                 <h4>Sign Up</h4>
                                 <input
                                     ref={nameRef}

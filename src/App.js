@@ -12,11 +12,10 @@ import AddPost from "./components/account/user/AddPost";
 import Posts from "./components/account/user/Posts";
 import EditPost from "./components/account/user/EditPost";
 import Categories from "./components/sidebar/widgets/Categories";
-import AddTag from "./components/account/admin/tag/AddTag";
-import Verified from "./components/account/admin/verified/Verified";
+import Tags from "./components/account/admin/tag/Tags";
+import AdminPosts from "./components/account/admin/posts/Posts";
 import Settings from "./components/account/user/Settings";
-import Comments from "./pages/post/partials/Comments";
-import Options from "./components/account/admin/options/Options";
+import SignOut from "./components/account/SignOut";
 
 const App = () => {
 	return (
@@ -30,6 +29,7 @@ const App = () => {
 				<Route path="/post/:id" element={<Post />} />
 				<Route path="/sign-in" element={<SignIn />} />
 				<Route path="/sign-up" element={<SignUp />} />
+				<Route path="/sign-out" element={<SignOut />} />
 
 
 				<Route path="/account" element={<Account />}>
@@ -41,12 +41,8 @@ const App = () => {
 
 				<Route path="/account" element={<Account />}>
 					<Route path='/account/categories' element={<Categories />} />
-					<Route path="/account/tag" element={<AddTag />} />
-					<Route path="/account/verified" element={<Verified />} />
-					<Route path="/account/options" element={<Options />} />
-					<Route path="/account/comments" element={<Comments />} />
-
-
+					<Route path="/account/tags" element={<Tags />} />
+					<Route path="/account/posts" element={<AdminPosts />} />
 
 
 				</Route>

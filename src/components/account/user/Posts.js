@@ -38,6 +38,7 @@ const Posts = () => {
                 <tr>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Verified</th>
                     <th>Date</th>
                     <th>Options</th>
                 </tr>
@@ -55,11 +56,12 @@ const Posts = () => {
                                     </React.Fragment>
                                 )
                             })}</td>
+                            <td>{post?.verified ? 'Yes' : 'No'}</td>
                             <td>{post?.createdAt}</td>
-                            <td>
+                            <td style={{whiteSpace: 'nowrap'}}>
                                 <button onClick={() => { deletPost(post.id) }} className="btn btn-primary" >Delete</button>
                                 <Link to={`/account/edit/${post.id}`}>
-                                    <button className="btn btn-primary" style={{ marginLeft: "8px" }}   >Edit</button >
+                                    <button className="btn btn-primary" style={{ marginLeft: "2px" }}>Edit</button >
                                 </Link>
                             </td>
                         </tr>

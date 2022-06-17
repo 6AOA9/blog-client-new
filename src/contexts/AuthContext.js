@@ -18,6 +18,7 @@ export const AuthProvider = (props) => {
         setToken(null)
         setUser({})
         window.localStorage.removeItem('token')
+        window.localStorage.removeItem('user')
         setIsAuthenticated(false)
     }
     return <AuthContext.Provider value={{

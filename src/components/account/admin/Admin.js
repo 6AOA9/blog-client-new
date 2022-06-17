@@ -1,34 +1,33 @@
 import { Routes, Route } from "react-router-dom";
 
 import AdminSidebar from "./AdminSidebar";
-import AddCat from "./categories/AddCat";
-import AddTag from "./tag/AddTag";
-import Verified from "./verified/Verified";
-import Options from "./options/Options"
-import Comments from "./comments/comment"
+import Categories from "./categories/Categories";
+import Tags from "./tag/Tags";
+import Posts from "./posts/Posts";
 
 
 
 
 const Admin = () => {
-  return (
-    <>
-      <div className="container">
-        <div className="row">
-          <AdminSidebar />
-          <div className="col-lg-9">
-            <Routes>
-              <Route path="/categories" element={<AddCat />} />
-              <Route path="/tag" element={<AddTag />} />
-              <Route path="/verified" element={<Verified />} />
-              <Route path="/edit-options" element={<Options />} />
-              <Route path="/delete-comments" element={<comment />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+	return (
+		<>
+			<div className="container">
+				<div className="row">
+					<div className="col-12"><h4>Admin Dashboard</h4></div>
+				</div>
+				<div className="row">
+					<AdminSidebar />
+					<div className="col-lg-9">
+						<Routes>
+							<Route path="/categories" element={<Categories />} />
+							<Route path="/tags" element={<Tags />} />
+							<Route path="/posts" element={<Posts />} />
+						</Routes>
+					</div>
+				</div>
+			</div>
+		</>
+	);
 };
 
 export default Admin;
