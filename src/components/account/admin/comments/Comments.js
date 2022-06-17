@@ -1,6 +1,7 @@
-import React, { useRequest, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useRequest } from "../../../../lib/hooks/useRequest";
 
-const comment = () => {
+const Comments = () => {
     const sendRequest = useRequest()
     const [comments, setComments] = useState([])
 
@@ -33,28 +34,23 @@ const comment = () => {
         <table className="w-100 table table-striped">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Category</th>
+                    <th>Text</th>
+                    <th>Post</th>
+                    <th>Author</th>
                     <th>Date</th>
                     <th>Options</th>
                 </tr>
             </thead>
             <tbody>
-                {comments.map((comments, i) => {
+                {comments.map((comment, i) => {
                     return (
                         <tr key={i}>
-                            <td>{comments?.user?.map((c, i) => {
-                                return (
-                                    <React.Fragment key={i}>
-                                        <span key={i}>{c.post}</span>
-                                        {(i < comments.User.length - 1) && <>, </>}
-                                    </React.Fragment>
-                                )
-                            })}</td>
-                            <td>{comments?.createdAt}</td>
+                            <td>{comment?.content}</td>
+                            <td>{comment?.Post?.title}</td>
+                            <td>{comment?.User?.name}</td>
+                            <td>{comment?.createdAt}</td>
                             <td>
-                                <button onClick={() => { deletComment(comments.id) }} className="btn btn-primary" >Delete</button>
-
+                                <button onClick={() => { deletComment(comment.id) }} className="btn btn-primary" >Delete</button>
                             </td>
                         </tr>
                     )
@@ -64,4 +60,4 @@ const comment = () => {
     )
 }
 
-export default comment
+export default Comments

@@ -16,6 +16,8 @@ import Tags from "./components/account/admin/tag/Tags";
 import AdminPosts from "./components/account/admin/posts/Posts";
 import Settings from "./components/account/user/Settings";
 import SignOut from "./components/account/SignOut";
+import AdminComments from "./components/account/admin/comments/Comments";
+import Options from "./components/account/admin/options/Options";
 
 const App = () => {
 	return (
@@ -43,8 +45,8 @@ const App = () => {
 					<Route path='/account/categories' element={<Categories />} />
 					<Route path="/account/tags" element={<Tags />} />
 					<Route path="/account/posts" element={<AdminPosts />} />
-
-
+					<Route path="/account/comments" element={<AdminComments />} />
+					<Route path="/account/options" element={<Options />} />
 				</Route>
 
 

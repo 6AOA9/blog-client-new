@@ -11,6 +11,8 @@ const defaultSiteData = {
         facebook: null,
         twitter: null,
         youtube: null,
+        email: null,
+        instagram: null,
         latitude: 41.003935,
         longitude: 28.6648233,
     },
@@ -51,7 +53,8 @@ export const AppProvider = ({children}) => {
     }, [])
     return (
         <AppContext.Provider value={{
-            siteData
+            siteData,
+            setSiteData
         }}>
             {children}
         </AppContext.Provider>
