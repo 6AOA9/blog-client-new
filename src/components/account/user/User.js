@@ -13,6 +13,7 @@ const User = () => {
           <UserSidebar />
           <div className="col-lg-9">
             <Routes>
+              <Route exact path="/" element={<Posts />} />
               <Route path="/posts" element={<Posts />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/add-post" element={<AddPost />} />

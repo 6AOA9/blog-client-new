@@ -13,6 +13,9 @@ const UserSidebar = () => {
                 <li className="list-group-item">
                     <Link to='add-post'>New Article </Link>
                 </li>
+                <li className="list-group-item">
+                    <Link to='/sign-out'>Sign Out </Link>
+                </li>
             </ul>
         </div>
     );

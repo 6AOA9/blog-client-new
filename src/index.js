@@ -6,6 +6,7 @@ import './assets/css/colors.css';
 import './assets/css/font-awesome.min.css';
 import './assets/css/responsive.css';
 import './assets/style.css';
+import './assets/custom.css'
 import App from './App';
 import { AppProvider } from './contexts/AppContext';
 import { AuthProvider } from './contexts/AuthContext';

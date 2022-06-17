@@ -28,6 +28,8 @@ const SignIn = () => {
                 if (response.success) {
                     appCtx.login(response)
                     navigate('/account')
+                } else {
+                    window.alert(response?.messages?.join(' '))
                 }
             })
     }
@@ -39,7 +41,7 @@ const SignIn = () => {
                     <h4 style={{ background: "#000000", color: "white" }} className="small-title">Login Page</h4>
                     <div className="row">
                         <div className="col-lg-12 d-flex justify-content-center">
-                            <div className="form-wrapper">
+                            <div className="form-wrapper w-75">
                                 <h4>Login</h4>
 
                                 <input
@@ -57,13 +59,13 @@ const SignIn = () => {
                                 <button onClick={signin} type="submit" className="btn btn-primary">
                                     Login
                                 </button>
-                                <Link to={"/"}>
+                                <Link to={"/sign-up"}>
                                     <button
                                         type="submit"
                                         className="btn btn-danger"
                                         style={{ background: "#7FFFD4", color: "black" }}
                                     >
-                                        Forget Password
+                                        Sign Up
                                     </button>
                                 </Link>
                             </div>
