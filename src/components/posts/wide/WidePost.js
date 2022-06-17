@@ -20,7 +20,7 @@ const WidePost = ({ post }) => {
                     <p>{post?.excerpt}</p>
                     <small><i className="fa fa-eye"></i> {post?.views}</small>
                     <small>{post?.createdAt}</small>
-                    <small>by: {post?.User.name}</small>
+                    <small>by: {post?.User?.name}</small>
                 </div>
             </div>
             <hr className="invis" />
