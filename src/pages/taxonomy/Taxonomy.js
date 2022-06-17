@@ -1,6 +1,6 @@
 import Content from "../../components/shared/Content"
 
-const Taxonomy = () => {
+const Taxonomy = ({taxonomy}) => {
     return (
         <Content>
             HOHOHOH

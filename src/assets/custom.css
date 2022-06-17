@@ -1,0 +1,14 @@
+@media screen and (max-width: 786px) {
+    .blog-list .blog-meta.big-meta h4 {
+        margin-left: 0;
+        padding: 1rem 1rem 1rem 0;
+    }
+}
+@media screen and (max-width: 576px) {
+    .center-side, .left-side, .right-side {
+        width: 100%;
+    }
+}
+.newsletter-widget .form-inline .form-control {
+    max-width: 100%;
+}
